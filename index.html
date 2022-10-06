@@ -4,11 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inloggning</title>
+    <title>Inloggningsuppgift</title>
+    <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script src="localstorage.js" defer></script>
 </head>
-<body>
+<body id="body">
+    <form id="form">
+        <input id="username">
+        <input id="password">
+    </form>
+    <button id="button" type="button" onclick="getInfo()">Logga in</button>
+    <button id="logout">Logga ut</button>
 
-    
+    <h1 id="h1">Vänligen logga in ovan</h1>
+    <!-- <h2 id="h2">Välkommen</h2> -->
+
+    <p id="fel"></p>
+
 </body>
-</html>
+</html> 
