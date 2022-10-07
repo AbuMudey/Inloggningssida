@@ -1,11 +1,13 @@
+
 const h1 = document.querySelector("#h1");
 const form = document.querySelector("#form");
-const username = document.querySelector(".username");
-const password = document.querySelector(".password");
-const button = document.querySelector("#button");
+const username = document.querySelector("#username");
+const password = document.querySelector("#password");
+const login = document.querySelector("#login");
 const fel = document.querySelector("#fel");
-const body = document.querySelector("#body");
-//const logout = document.querySelector("#logout");
+const logout = document.querySelector("#logout");
+
+
 
 // Three username and passwords
 let objPeople = [
@@ -17,51 +19,36 @@ let objPeople = [
 
     {
         username:"abukar",
-        password: "12345",
+        password: "abc123",
     },
     {
         username:"anna",
-        password:"12345",
+        password:"anna1",
     },
 ]
 
  function getInfo() {
    let username = document.getElementById("username").value
    let password = document.getElementById("password").value
-   document.getElementById("button").innerText = "Logga ut";
-   document.getElementById("form").style.display ="none"
-   document.getElementById("h1").innerText = "Välkommen";
-   
-   
-   
+   document.getElementById("h1").innerText ="Välkommen"
+   document.getElementById("form").style.display = "none"
+   logout.style.display ="block"
 
 // loop
-
-   for (i = 0; i < objPeople.length; i++) {
-
-    if(username == password[i] .username && password == username[i].
+    for(i = 0; i < objPeople.length; i++) {
+          if(username == objPeople[i].username && password == objPeople[i].
         password){
             console.log(username + " is logged in !!!")
+        } else {
+            renderFalse();
 
-        }else {
-            console.log("incorrect username or password")
-            document.getElementById("fel"). innerText ="Fel användernamn eller lösenord"
         }
+    };    
+ };
 
-   }
-console.log("incorrect username or password")
-
-
-}; 
-
-// jag vill visa fram min form när jag klickar på logout
-function onclick (){
-    button.addEventListener("click, function")
-    document.getElementById("form")
-
-}
-
-localStorage.setItem("username", "fredrik");
-document.getElementById("username");
+ // felmeddelande om användar eller lösen är felaktigt
+ function renderFalse(){
+    h1.innerText="fel användarnamn eller lösenord"
+ }
 
 

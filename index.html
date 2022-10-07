@@ -7,20 +7,19 @@
     <title>Inloggningsuppgift</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <script src="localstorage.js" defer></script>
 </head>
-<body id="body">
-    <form id="form">
-        <input id="username">
-        <input id="password">
-    </form>
-    <button id="button" type="button" onclick="getInfo()">Logga in</button>
+<body>
+    <div id="form">
+        <input id="username" placeholder="Enter Username" type="text">
+        <input id="password" placeholder="Enter Password" type="text">
+        <button id="login" type="button" onclick="getInfo()">Logga in</button>
+    </div>
+    
     <button id="logout">Logga ut</button>
 
     <h1 id="h1">Vänligen logga in ovan</h1>
-    <!-- <h2 id="h2">Välkommen</h2> -->
 
-    <p id="fel"></p>
+    <p id="fel">fel användarnamn eller lösenord</p>
 
 </body>
 </html> 
