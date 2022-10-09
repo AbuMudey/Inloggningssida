@@ -38,20 +38,17 @@ function getInfo(e) {
     const usernameEntry = document.getElementById("username").value;
     const passwordEntry = document.getElementById("password").value;
     document.getElementById("form").style.display = "none"
-    
+    localStorage.setItem("usernameArray", JSON.stringify(objPeople) );
 
 
     // Explanation: loop array with find > create parameter 'person' to represent each iteration > if entered username/pw matches a user's username/pw from array, run if-block, otherwise run else-block)
     let matchedPerson = objPeople.find(person => usernameEntry == person.usernameArray && passwordEntry == person.passwordArray);
 
     if(matchedPerson){
-        // once logged in, write code to store user-data to localstorage - https://www.w3schools.com/jsrEF/prop_win_localstorage.asp
-        // JSON.parse(localStorage.setItem()) .....
-        // now, the user will stay logged in even if page is refreshed
-        // when logging out (log-out button), add click-event to button and link a function to delete the localstorage-data
+        localStorage.getItem("objPeople");
 
-        // add "Welcome"-message/page here
-        h1.innerText = `${usernameEntry} is logged in - welcome home`
+        // Welcome"-message/page here
+        h1.innerText = `${usernameEntry} is logged in - Welcome`
         logout.style.display ="block"
     } 
     else(
