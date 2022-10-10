@@ -27,16 +27,21 @@ let objPeople =  [
     }
 ]
 
+if (localStorage.getItem("username")) {
+renderSuccess()
+
+}
+
 
 // Function - search and match
 function getInfo(e) {
     
-   // e.preventDefault();     //  https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
+    e.preventDefault();     //  https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
 
     const usernameEntry = document.getElementById("username").value;
     const passwordEntry = document.getElementById("password").value;
     document.getElementById("form").style.display = "none"
-    localStorage.setItem("usernameArray", JSON.stringify(objPeople) );
+    
    
    
 
@@ -45,18 +50,27 @@ function getInfo(e) {
     let matchedPerson = objPeople.find(person => usernameEntry == person.usernameArray && passwordEntry == person.passwordArray);
 
     if(matchedPerson){
-        // once logged in, write code to store user-data to localstorage - https://www.w3schools.com/jsrEF/prop_win_localstorage.asp
-          localStorage.getItem("usernameArray");
+        
+          localStorage.setItem("username", usernameEntry );
 
         // add "Welcome"-message/page here
-        h1.innerText = `${usernameEntry} is logged in - Welcome`
-        logout.style.display ="block"
+        
+        renderSuccess()
     } 
     else(
         renderFalse()
     )
 };
 
+
+function renderSuccess(){
+    const user = localStorage.getItem("username")
+    h1.innerText = `${user} is logged in - Welcome`
+    logout.style.display ="block"
+    document.getElementById("form").style.display="none"
+}
+
+//localStorage.setItem("username", JSON.stringify(usernameEntry) );
 
 // Function - felmeddelande om användar eller lösen är felaktigt
 function renderFalse(){
@@ -71,11 +85,12 @@ function out(){
     document.getElementById("form").style.display ="block"
     logout.style.display ="none"
     h1.innerText="Välkommen - vänligen logga in ovan"
+    localStorage.removeItem("username")
    
-    // Erese the form when you have loged out
+    // Erese the form when you have loged out. 
+    //Var tvungen att ha med "use strict" längst upp. Annars fungerade inte denna koden
     username.value = "";
     password.value = "";
 }
 
 logout.addEventListener('click', out);
-localStorage.clear
