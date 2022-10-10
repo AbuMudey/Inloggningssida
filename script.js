@@ -1,5 +1,4 @@
-"use strict";   //  https://www.w3schools.com/js/js_strict.asp
-
+"use strict"; 
 
 // HTML-references
 const h1 = document.querySelector("#h1");
@@ -36,7 +35,7 @@ renderSuccess()
 // Function - search and match
 function getInfo(e) {
     
-    e.preventDefault();     //  https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
+    e.preventDefault();    
 
     const usernameEntry = document.getElementById("username").value;
     const passwordEntry = document.getElementById("password").value;
@@ -94,3 +93,4 @@ function out(){
 }
 
 logout.addEventListener('click', out);
+
